@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+
+
+    <meta charset="utf-8">
+    <title>An App with a Map!</title>
+</head>
+
+<body>
+    <header>
+        <h1 id="hdrMsg">{{message}}</h1>
+    </header>
+    <section id="mapIt" class="mapSection">
+
+        <div id="mapBase" @click="onClick($event)" class="mapArea">
+
+            <div v-for="(spot, index) in mapPins">
+
+                <i v-on:click="removePin($event,spot,index)" v-bind:key="spot.id" v-bind:style="{top: spot.yLoc, left: spot.xLoc}" v-bind:title="spot.note" v-if="spot.seen" id="mpin" class="fa fa-map-pin map-It-Icon"></i>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>2017 | heckling around</footer>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+
+</html>
